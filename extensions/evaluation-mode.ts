@@ -25,6 +25,8 @@ Evaluation pack requirements:
 - If this is behavior or bug-fix work, include a minimal reproduction and the verification steps
 - Include known limitations or anything not fully verified
 - Present the pack as a single self-contained HTML page when possible
+- Save the HTML file locally and serve it so the user can view it
+- At the end of your response, provide the localhost URL so the user can open it directly
 - Do not claim success without showing the evidence used to verify it`;
 }
 
@@ -68,7 +70,9 @@ export default function evaluationPackExtension(pi: ExtensionAPI): void {
       systemPrompt:
         event.systemPrompt +
         "\n\nEvaluation mode is enabled. For this task, you must finish with an evaluation pack. " +
-        "Include changed files, commands run, verification evidence, success criteria, limitations, and present the pack as a single self-contained HTML page when possible.",
+        "Include changed files, commands run, verification evidence, success criteria, limitations, " +
+        "and present the pack as a single self-contained HTML page. Save it locally, serve it, and " +
+        "provide the localhost URL at the end of your response so the user can open it directly.",
     };
   });
 
