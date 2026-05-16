@@ -1,7 +1,5 @@
 # Extensions
 
-Drop into `~/.pi/agent/extensions/` or install via `pi install`.
-
 ## bailian-coding-plan
 
 Registers provider `bailian-coding-plan` with the following models:
@@ -17,18 +15,6 @@ Endpoint: `https://coding-intl.dashscope.aliyuncs.com/v1`
 All models at zero cost (DashScope Coding Plan subscription).
 
 **Requires:** `DASHSCOPE_API_KEY` exported in your environment.
-
-## protected-sensitive-files
-
-Requires confirmation before:
-- Writing or editing `.env`, `.env.*`, or `.gitignore`
-- Running `rm -rf`, `find -delete`, or similar destructive bash commands
-
-Non-interactive mode: blocks by default.
-
-Derived from Pi's `examples/protected-paths.ts` (blocks writes to `.env`,
-`.git/`, `node_modules/`). This version adds confirmation UI instead of
-hard-block, and extends protection to destructive bash commands.
 
 ## everpi-yolo
 

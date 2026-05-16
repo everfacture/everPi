@@ -1,13 +1,11 @@
 {
   "name": "everpi",
   "version": "1.0.0",
-  "description": "Pi customizations: providers, extensions, prompts, and skills",
+  "description": "Pi customizations: DashScope provider and permission system",
   "keywords": ["pi-package"],
   "license": "MIT",
   "pi": {
-    "extensions": ["extensions"],
-    "skills": ["skills"],
-    "prompts": ["prompts"]
+    "extensions": ["extensions"]
   },
   "dependencies": {
     "@gotgenes/pi-permission-system": "^5.15.0"
