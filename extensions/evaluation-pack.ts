@@ -73,9 +73,9 @@ export default function evaluationPackExtension(pi: ExtensionAPI): void {
   });
 
   pi.registerCommand("evaluation-mode", {
-    description: "Toggle persistent evaluation-pack mode. Usage: /evaluation-mode on|off|toggle|status",
+    description: "Toggle evaluation mode. Usage: /evaluation-mode [on|off|status]",
     handler: async (args, ctx) => {
-      const action = args.trim().toLowerCase() || "status";
+      const action = (args || "").trim().toLowerCase();
 
       if (action === "on") {
         persist({ enabled: true }, ctx);
@@ -89,13 +89,14 @@ export default function evaluationPackExtension(pi: ExtensionAPI): void {
         return;
       }
 
-      if (action === "toggle") {
-        persist({ enabled: !state.enabled }, ctx);
-        ctx.ui.notify(`Evaluation mode ${state.enabled ? "enabled" : "disabled"}`, "info");
+      if (action === "status") {
+        ctx.ui.notify(`Evaluation mode is ${state.enabled ? "ON" : "OFF"}`, "info");
         return;
       }
 
-      ctx.ui.notify(`Evaluation mode is ${state.enabled ? "ON" : "OFF"}`, "info");
+      // No argument — toggle
+      persist({ enabled: !state.enabled }, ctx);
+      ctx.ui.notify(`Evaluation mode ${state.enabled ? "enabled" : "disabled"}`, "info");
     },
   });
 
