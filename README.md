@@ -1,25 +1,32 @@
 # everpi
 
-My Pi customizations: providers and extensions.
+DashScope Coding Plan provider for Pi. Four zero-cost models from Alibaba's Bailian platform, registered as a drop-in `/model` option.
 
 ## Install
 
 ```bash
 pi install git:github.com/everfacture/everpi
+npm install
+/reload
 ```
 
-Reload after install: `/reload`
+## Models
 
-## What's here
+All four are free under the [DashScope Coding Plan](https://bailian.console.aliyun.com/):
 
-| Resource | What it does | Type |
-|----------|-------------|------|
-| [bailian-coding-plan](extensions/README.md#bailian-coding-plan) | DashScope/Coding Plan provider (qwen, kimi, glm, MiniMax) | Provider |
-| [everpi-yolo](extensions/README.md#everpi-yolo) | Fine-grained permission system with YOLO defaults | Extension |
+| Model | Context | Output | Inputs |
+|-------|---------|--------|--------|
+| qwen3.6-plus | 1M | 64K | text, image |
+| kimi-k2.5 | 256K | 32K | text, image |
+| glm-5 | 203K | 16K | text |
+| MiniMax-M2.5 | 197K | 32K | text |
 
-## Quick setup
+Endpoint: `coding-intl.dashscope.aliyuncs.com` (Alibaba Cloud, international route)
 
-1. Set `DASHSCOPE_API_KEY` in your shell profile
-2. Install: `pi install git:github.com/everfacture/everpi`
-3. Run `npm install` in the package root (for everpi-yolo)
-4. Reload: `/reload` in Pi
+## Setup
+
+```bash
+export DASHSCOPE_API_KEY="your-key"
+```
+
+Add to `~/.zprofile` so Pi picks it up on every session.

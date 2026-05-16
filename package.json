@@ -1,13 +1,10 @@
 {
   "name": "everpi",
   "version": "1.0.0",
-  "description": "Pi customizations: DashScope provider and permission system",
+  "description": "DashScope Coding Plan provider for Pi — zero-cost models from Alibaba Bailian",
   "keywords": ["pi-package"],
   "license": "MIT",
   "pi": {
     "extensions": ["extensions"]
-  },
-  "dependencies": {
-    "@gotgenes/pi-permission-system": "^5.15.0"
   }
 }
