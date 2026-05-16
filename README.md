@@ -15,7 +15,7 @@ Reload after install: `/reload`
 | Resource | What it does | Type |
 |----------|-------------|------|
 | [bailian-coding-plan](extensions/README.md#bailian-coding-plan) | DashScope/Coding Plan provider (qwen, kimi, glm, MiniMax) | Provider |
-| [evaluation-pack](extensions/README.md#evaluation-pack) | Eval mode + structured task output with verification evidence | Extension |
+| [evaluation-mode](extensions/README.md#evaluation-mode) | Persistent eval mode toggle + task output with verification evidence | Extension |
 | [protected-sensitive-files](extensions/README.md#protected-sensitive-files) | Confirms edits to .env/.gitignore; blocks destructive deletes | Extension |
 | [everpi-yolo](extensions/README.md#everpi-yolo) | Fine-grained permission system with YOLO defaults | Extension |
 | [tinyfish-search](skills/README.md) | Lightweight web search via API | Skill |
