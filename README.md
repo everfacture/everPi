@@ -19,9 +19,9 @@ Reload after install: `/reload`
 | [protected-sensitive-files](extensions/README.md#protected-sensitive-files) | Confirms edits to .env/.gitignore; blocks destructive deletes | Extension |
 | [everpi-yolo](extensions/README.md#everpi-yolo) | Fine-grained permission system with YOLO defaults | Extension |
 | [tinyfish-search](skills/README.md) | Lightweight web search via API | Skill |
-| [html-slide-deck](prompts/README.md#html-slide-deck) | Output as self-contained HTML slides | Prompt template |
-| [evaluation-pack-template](prompts/README.md#evaluation-pack-template) | Run tasks with verification evidence | Prompt template |
-| [session-friction-review](prompts/README.md#session-friction-review) | Analyze past sessions for wasted motion | Prompt template |
+| [html-slide-deck](prompts/README.md#html-slide-deck) | Present findings as a browsable HTML slide deck | Prompt template |
+| [evaluation-pack-template](prompts/README.md#evaluation-pack-template) | Run tasks requiring verification evidence → HTML page | Prompt template |
+| [session-friction-review](prompts/README.md#session-friction-review) | Audit sessions for wasted agent motion → HTML deck | Prompt template |
 
 ## Quick setup
 
