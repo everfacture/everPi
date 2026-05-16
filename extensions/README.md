@@ -18,17 +18,27 @@ All models at zero cost (DashScope Coding Plan subscription).
 
 **Requires:** `DASHSCOPE_API_KEY` exported in your environment.
 
-## evaluation-pack
+## evaluation-mode
 
-Two commands for forcing verification evidence from the agent.
+Appends evaluation instructions to the system prompt for every turn.
+The agent must produce verification evidence before claiming a task is done:
+changed files, commands run, screenshots, repro steps, known limitations.
 
-- `/evaluation-mode on|off|toggle|status` — persistent mode for the entire session
-- `/evaluation-pack <task>` — run a single task that must end with an evaluation pack
+**Commands:**
+- `/evaluation-mode` — toggle on/off (no args needed)
+- `/evaluation-mode on|off|status` — explicit control
 
-When on, injects system instructions requiring: changed files, commands run,
-verification evidence, known limitations, and success criteria. Shows a
-"Evaluation mode: ON" widget in the TUI footer. State persists across forks
-and branches via session entries.
+**How output is delivered:**
+The agent includes the evaluation pack in its normal response — typically
+as a `write` tool call that creates `evaluation-pack.html`. No separate
+delivery mechanism; the agent decides how to present it.
+
+**When to use:**
+Turn on when doing task work (fixing bugs, building features). Turn off
+for casual questions or exploration to avoid overhead.
+
+Shows "Evaluation mode: ON" widget in the TUI. State persists across
+forks and branches via session entries.
 
 ## protected-sensitive-files
 
