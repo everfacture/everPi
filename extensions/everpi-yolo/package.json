@@ -1,0 +1,12 @@
+{
+  "name": "everpi-yolo",
+  "version": "1.0.0",
+  "description": "Fine-grained Pi permission system with YOLO defaults",
+  "main": "index.ts",
+  "pi": {
+    "extensions": ["index.ts"]
+  },
+  "dependencies": {
+    "@gotgenes/pi-permission-system": "^5.15.0"
+  }
+}

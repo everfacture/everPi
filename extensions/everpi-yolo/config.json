@@ -1,0 +1,24 @@
+{
+  "yoloMode": true,
+  "permission": {
+    "*": "ask",
+    "read": "allow",
+    "write": "allow",
+    "edit": "allow",
+    "bash": {
+      "rm -rf *": "ask",
+      "sudo *": "allow",
+      "chmod 777 *": "allow",
+      "chown 777 *": "allow",
+      "git *": "allow",
+      "npm *": "allow",
+      "node *": "allow",
+      "python *": "allow",
+      "pip *": "allow",
+      "make *": "allow",
+      "docker *": "allow",
+      "curl *": "allow"
+    },
+    "external_directory": "ask"
+  }
+}
