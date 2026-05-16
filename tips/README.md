@@ -24,13 +24,6 @@ export DASHSCOPE_API_KEY="your-key"
 Extensions that require interactive UI (`ctx.hasUI`) block or skip gracefully
 in non-interactive mode.
 
-## Evaluation mode workflow
-
-1. Start a session: `/evaluation-mode on`
-2. Work normally — the agent attaches evidence to every task
-3. Review: files changed, commands run, verification evidence
-4. Toggle off: `/evaluation-mode off`
-
 ## Permission system
 
 everpi-yolo uses YOLO mode by default — most operations allowed, only
