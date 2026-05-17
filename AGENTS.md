@@ -21,7 +21,7 @@ Pi package loading is declared in `package.json` under `pi.extensions` and `pi.s
 - Install deps: `npm install`
 - Validate package metadata: `node -e "JSON.parse(require('fs').readFileSync('package.json','utf8')); console.log('package.json ok')"`
 - List skill files: `find skills -maxdepth 2 -name SKILL.md -print | sort`
-- Local install test: `pi install /home/ibby/everpi`
+- Local install test: `pi install "$(pwd)"` from repo root
 
 ## Skill Rules
 

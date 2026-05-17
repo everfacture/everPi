@@ -14,12 +14,6 @@ pi install git:github.com/everfacture/everpi
 /reload
 ```
 
-For local development:
-
-```bash
-pi install /home/ibby/everpi
-```
-
 ## Skills
 
 Packaged skills live in `skills/`:
@@ -63,6 +57,16 @@ CHANGELOG.md  user-facing changes
 ```
 
 ## Development
+
+Clone the repo, then install from the checkout path if you want to test local changes:
+
+```bash
+gh repo clone everfacture/everpi
+cd everpi
+pi install "$(pwd)"
+```
+
+Validate package metadata and skill discovery:
 
 ```bash
 node -e "JSON.parse(require('fs').readFileSync('package.json','utf8')); console.log('package.json ok')"
