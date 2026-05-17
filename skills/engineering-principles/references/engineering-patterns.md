@@ -1,6 +1,10 @@
-# Engineering Patterns from steipete's Codebases
+# Engineering Patterns
 
-Concrete implementation patterns from deep analysis of 10 repos. Reference these when implementing similar functionality. Use these patterns as starting points -- adapt, don't copy.
+Concrete implementation patterns adapted from public repository analysis. Reference these when implementing similar functionality. Use these patterns as starting points -- adapt, don't copy.
+
+## Attribution
+
+Some patterns were derived from public repositories by `steipete`; source repo/file hints are preserved in pattern headings where known (for example `summarize/streaming-merge.ts`). Treat these as conceptual references, not code to copy verbatim.
 
 ---
 

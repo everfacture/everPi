@@ -1,7 +1,7 @@
 {
   "name": "everpi",
   "version": "1.0.0",
-  "description": "Ibby's Pi package: DashScope Coding Plan provider plus reusable skills",
+  "description": "Reusable Pi package for agent workflow skills and provider extensions",
   "keywords": [
     "pi-package"
   ],

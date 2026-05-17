@@ -1,6 +1,6 @@
 ---
 name: engineering-principles
-description: Engineering operating protocol for coding agents. Use before source-code work: implementation, bug fixes, refactors, architecture, tests, devops, agentic tools, code review, external repo analysis, or model/provider benchmarking.
+description: "Engineering operating protocol for coding agents. Use before source-code work: implementation, bug fixes, refactors, architecture, tests, devops, agentic tools, code review, external repo analysis, or model/provider benchmarking."
 ---
 
 # Engineering Principles

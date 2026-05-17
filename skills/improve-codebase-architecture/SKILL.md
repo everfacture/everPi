@@ -1,6 +1,6 @@
 ---
 name: improve-codebase-architecture
-description: Find architecture deepening opportunities in codebases. Use when improving architecture, refactoring modules, consolidating duplication, splitting god files, making code more testable, or making a repo easier for agents to navigate.
+description: "Find architecture deepening opportunities in codebases. Use when improving architecture, refactoring modules, consolidating duplication, splitting god files, making code more testable, or making a repo easier for agents to navigate."
 ---
 
 # Improve Codebase Architecture

@@ -1,6 +1,6 @@
 ---
 name: github-hygiene
-description: GitHub and repository workflow for coding agents. Use for commits, PRs, issues, changelogs, releases, forks, publishing, repo hygiene, or checking GitHub auth/remotes.
+description: "GitHub and repository workflow for coding agents. Use for commits, PRs, issues, changelogs, releases, forks, publishing, repo hygiene, or checking GitHub auth/remotes."
 ---
 
 # GitHub Hygiene

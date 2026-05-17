@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-everpi is Ibby's Pi package. It bundles:
-- DashScope Coding Plan provider extension for Pi
+everpi is a reusable Pi package. It bundles:
 - reusable Pi skills under `skills/`
+- DashScope Coding Plan provider extension for Pi
 
 Pi package loading is declared in `package.json` under `pi.extensions` and `pi.skills`.
 
