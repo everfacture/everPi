@@ -3,8 +3,7 @@
 ## Unreleased
 
 ### Added
-- Add Pi skills package content: `engineering-principles`, `improve-codebase-architecture`, and `github-hygiene`.
-- Add repository operating guide in `AGENTS.md`.
+- **skills/google-workspace**: Unified Google Workspace CLI — 49 tools across Calendar, Gmail, Drive, Docs, Sheets, Contacts, Tasks. Zero dependencies. See `skills/google-workspace/README.md` for setup.
 
 ### Changed
-- Declare packaged skills in `package.json` so Pi can load them from the repo.
+- **repo structure**: Added `AGENTS.md`, `CHANGELOG.md`, `.gitignore`. README now covers all extensions and skills.

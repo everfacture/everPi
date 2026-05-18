@@ -1,42 +1,12 @@
 # everpi
 
-Reusable Pi package for agent workflows: engineering skills first, optional provider extensions alongside them.
+Pi coding agent resources: extensions and skills. Install via `pi install` or copy manually.
 
-## What It Includes
+## Extensions
 
-- **Skills** — reusable Pi skills for engineering discipline, architecture review, and GitHub hygiene.
-- **Provider extension** — DashScope Coding Plan models exposed as Pi `/model` options.
+### bailian-coding-plan
 
-## Install
-
-```bash
-pi install git:github.com/everfacture/everpi
-/reload
-```
-
-## Skills
-
-Packaged skills live in `skills/`:
-
-- `engineering-principles` — coding operating protocol for Pi agents.
-- `improve-codebase-architecture` — architecture review and refactor-planning workflow.
-- `github-hygiene` — commits, PRs, changelogs, releases, and repo cleanliness.
-
-Each skill keeps long material in `references/` so Pi only loads detail when needed.
-
-## DashScope Provider
-
-The provider extension registers free Alibaba Bailian models via DashScope Coding Plan.
-
-Setup:
-
-```bash
-export DASHSCOPE_API_KEY="your-key"
-```
-
-Add it to `~/.zprofile` or shell profile so Pi sees it in new sessions.
-
-Models:
+DashScope Coding Plan provider. Four zero-cost models registered as drop-in `/model` options.
 
 | Model | Context | Output | Inputs |
 |-------|---------|--------|--------|
@@ -45,30 +15,31 @@ Models:
 | glm-5 | 203K | 16K | text |
 | MiniMax-M2.5 | 197K | 32K | text |
 
-Endpoint: `coding-intl.dashscope.aliyuncs.com`.
+**Requires:** `DASHSCOPE_API_KEY` env var.
 
-## Repository Layout
+[→ Extension details](extensions/README.md)
 
-```text
-extensions/   Pi provider extensions
-skills/       reusable Pi skills
-AGENTS.md     repo operating guide
-CHANGELOG.md  user-facing changes
-```
+## Skills
 
-## Development
+| Skill | Description |
+|-------|-------------|
+| [engineering-principles](skills/engineering-principles/) | Operating protocol for coding work. SHIP vs BUILD gear, blast radius, verification. |
+| [github-hygiene](skills/github-hygiene/) | GitHub workflow: commits, PRs, issues, releases, repo cleanliness. |
+| [improve-codebase-architecture](skills/improve-codebase-architecture/) | Find deepening opportunities. Turn shallow modules into deep ones. |
+| [google-workspace](skills/google-workspace/) | 49 Google Workspace tools via zero-dependency Python CLI. Calendar, Gmail, Drive, Docs, Sheets, Contacts, Tasks. |
 
-Clone the repo, then install from the checkout path if you want to test local changes:
-
-```bash
-gh repo clone everfacture/everpi
-cd everpi
-pi install "$(pwd)"
-```
-
-Validate package metadata and skill discovery:
+## Install
 
 ```bash
-node -e "JSON.parse(require('fs').readFileSync('package.json','utf8')); console.log('package.json ok')"
-find skills -maxdepth 2 -name SKILL.md -print | sort
+# Extensions
+pi install git:github.com/everfacture/everpi
+npm install
+/reload
+
+# Skills — copy to ~/.pi/agent/skills/ or register via resources_discover hook
+cp -r skills/<name> ~/.pi/agent/skills/
 ```
+
+## License
+
+MIT

@@ -2,52 +2,47 @@
 
 ## Project Overview
 
-everpi is a reusable Pi package. It bundles:
-- reusable Pi skills under `skills/`
-- DashScope Coding Plan provider extension for Pi
+Monorepo for Pi coding agent resources: extensions and skills.
 
-Pi package loading is declared in `package.json` under `pi.extensions` and `pi.skills`.
+- **extensions/** — TypeScript extensions registered with Pi via `pi.registerProvider()`, `pi.registerCommand()`, etc. Loaded by jiti at runtime.
+- **skills/** — Markdown SKILL.md files with procedural knowledge for Pi's skill system.
 
 ## Structure
 
-- `extensions/` — Pi extension TypeScript files.
-- `skills/` — Pi skills, each as `skills/<name>/SKILL.md` plus optional `references/`.
-- `docs/` — future detailed docs.
-- `README.md` — package overview and install path.
-- `CHANGELOG.md` — user-facing changes, `Unreleased` first.
+```
+repo/
+├── extensions/          # Pi extensions (.ts files)
+│   ├── bailian-coding-plan.ts
+│   └── README.md
+├── skills/              # Pi skills (SKILL.md + optional references/)
+│   ├── engineering-principles/
+│   ├── github-hygiene/
+│   ├── google-workspace/
+│   ├── improve-codebase-architecture/
+│   └── ...
+├── AGENTS.md            # this file
+├── CHANGELOG.md
+├── README.md            # monorepo front page
+├── .gitignore
+└── package.json
+```
 
 ## Commands
 
-- Install deps: `npm install`
-- Validate package metadata: `node -e "JSON.parse(require('fs').readFileSync('package.json','utf8')); console.log('package.json ok')"`
-- List skill files: `find skills -maxdepth 2 -name SKILL.md -print | sort`
-- Local install test: `pi install "$(pwd)"` from repo root
+- **install dependencies**: `npm install` (only if editing TypeScript in extensions)
+- **check**: `git status --short` — verify what's changing before committing
+- **build**: n/a — no build step for skills (Markdown) or extensions (loaded by jiti)
+- **release**: edit CHANGELOG.md Unreleased section, then `git commit` + `git push`
 
-## Skill Rules
+## Style
 
-- Keep `SKILL.md` terse and operational.
-- Put long detail in `references/` and load only on trigger.
-- Frontmatter requires `name` and `description`.
-- Names use lowercase letters, numbers, hyphens.
-- Avoid project-specific memories in general skills.
-
-## Extension Rules
-
-- Keep provider/model docs in `extensions/README.md` and root README.
-- Do not hardcode secrets. `DASHSCOPE_API_KEY` comes from environment.
-- Update README model table when model definitions change.
-
-## Release
-
-Before release or push:
-1. update `CHANGELOG.md`
-2. verify package JSON parses
-3. verify skills are discoverable
-4. test local install if Pi behavior changed
+- Extension filenames should match their primary registered command name
+- Skill directories should match their `name:` frontmatter field
+- Reference files live in `references/` subdirectories alongside SKILL.md
+- Conventional commit prefixes: `feat`, `fix`, `docs`, `chore`
 
 ## Agent Notes
 
-- Work on current branch unless user asks otherwise.
-- Do not create feature branches unless requested.
-- Do not edit `.git/` internals or lockfiles unless required by npm install/update.
-- Keep repo clean: README = overview, AGENTS = operating map, skill references = detail.
+- `skills/google-workspace/` contains a Python CLI (`scripts/gws.py`). Never commit credential files (`client_secret.json`, `token.json`). These are `.gitignore`d.
+- Extensions loaded by jiti — no tsc compilation. Errors surface silently in Pi.
+- This repo is the source of truth; the active Pi directory (`~/.pi/agent/`) is NOT git-tracked.
