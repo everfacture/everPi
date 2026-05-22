@@ -1,10 +1,6 @@
-# Engineering Patterns
+# Engineering Patterns from steipete's Codebases
 
-Concrete implementation patterns adapted from public repository analysis. Reference these when implementing similar functionality. Use these patterns as starting points -- adapt, don't copy.
-
-## Attribution
-
-Some patterns were derived from public repositories by `steipete`; source repo/file hints are preserved in pattern headings where known (for example `summarize/streaming-merge.ts`). Treat these as conceptual references, not code to copy verbatim.
+Concrete implementation patterns from deep analysis of 10 repos. Reference these when implementing similar functionality. Use these patterns as starting points -- adapt, don't copy.
 
 ---
 
@@ -263,18 +259,3 @@ func compactWarnings(warnings []string) []string {
 ```
 
 **Recognize this when:** An operation can fail for 5+ different reasons and showing all of them is worse than showing none.
-
----
-
-## 13. Dynamic API Discovery from Client Bundles (spogo)
-
-**Trigger:** Internal APIs where identifiers, hashes, or endpoints change with each deploy.
-
-**Problem:** Hardcoded API identifiers break when the upstream service updates.
-
-**Approach:** Download the client's JS bundle, parse webpack/rollup maps, extract the identifiers dynamically. Cache them. Refresh on cache miss.
-
-**Recognize this when:** You're reverse-engineering an API and the identifiers change every few weeks. Don't hardcode -- scrape the client.
-
----
-\n## 15. Connection Consolidation for SQLite Write Contention (sayf)\n\n**Trigger:** Multi-process/multi-threaded Python app using SQLite WAL mode. \"database is locked\" errors despite `busy_timeout`, WAL mode, and `check_same_thread=False`. Errors appear in multiples/second clusters.\n\n**Problem:** Multiple connections opening/closing per operation cycle (3+ per 15s cycle), each fighting the feed/persistent connection's write lock. WAL mode allows concurrent readers but only ONE writer. `busy_timeout=30s` expires when the persistent connection holds a write transaction >30s (slow WAL checkpoint on large DB, heavy backfill, or commit blocking).\n\n**Diagnosis flow (4 steps):**\n\n```\n1. COUNT connections per cycle:\n   grep \"connect_sqlite\\\\|sqlite3\\.connect\" python/sayf/services/operator_api/*.py | wc -l\n   # Expect: 1 per cycle. If 3+, you have contention.\n\n2. CHECK busy_timeout on all connection paths:\n   connection.execute(\"PRAGMA busy_timeout\")\n   # If < 30000, connections won't wait long enough for feed to flush\n\n3. DIAGNOSE which operations are writers vs readers:\n   grep -r \"database is locked\" logs/ | cut -d: -f4- | sort | uniq -c | sort -rn\n   # Writers: upsert, insert, commit. Readers never cause this in WAL mode.\n\n4. IDENTIFY the persistent connection that holds transactions open:\n   Look for commit=False pattern. That connection keeps write transactions\n   alive between explicit commits. Other connections trying to write=lock\n   contention.\n```\n\n**Fix: Pass a shared connection through the call chain.**\n\n```python\n# BEFORE (3+ connections per cycle):\ndef build_operator_cycle_report(config):\n    conn = connect_sqlite(config.db)  # connection 1\n    build_drawdown(conn)\n    conn.close()\n    \n    ids = load_exit_ids(config)  # connection 2 inside\n    \n    for plan_id in ids:\n        load_exit_preview(config, plan_id)  # connection 3 inside\n\n# AFTER (1 connection per cycle, passed by caller):\ndef build_operator_cycle_report(config, *, connection=None):\n    _conn = connection\n    _close = False\n    if _conn is None:\n        _conn = connect_sqlite(config.db)  # backward compat\n        _close = True\n    try:\n        build_drawdown(_conn)\n        ids = load_exit_ids(config, connection=_conn)\n        for plan_id in ids:\n            load_exit_preview(config, plan_id, connection=_conn)\n    finally:\n        if _close:\n            _conn.close()\n```\n\n**Caller owns lifecycle:**\n```python\n# CLI entry point:\nif args.command == \"operator-cycle\":\n    connection = connect_sqlite(config.paths.canonical_db)\n    ensure_metadata_tables(connection)\n    try:\n        return render_lines(build_operator_cycle_report(config, connection=connection))\n    finally:\n        connection.close()\n```\n\n**Recognize this when:** You get \"database is locked\" errors 10,000+ times, WAL mode is on, busy_timeout is set, but connections are opening and closing rapidly. The symptom is a symptom — the root cause is connection count, not connection configuration. One writer per cycle eliminates contention at the source.\n\n**Python code craft note:** When adding `connection` params, use `from __future__ import annotations` at module top (already present) so `sqlite3.Connection` type hints work without importing sqlite3 at runtime. The `**kw` pattern on test mocks (`lambda config, **kw: ...`) prevents test breakage when new keyword params are added.\n\n---\n\n## 16. Reserved

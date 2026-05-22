@@ -292,7 +292,7 @@ class PayPalPayment implements PaymentMethod { charge() { ... } }
 
 **Encapsulate fields.** Access instance fields through methods — single place for validation, logging, lazy init, or change notification later.
 
-**Other essentials:** equality/hash must match (same fields for both). Lazy initialization for expensive computations. Initialize all state at construction. Method objects for complex logic with shared temporaries. Abstraction ladder: 1 use → inline, 2 uses → consider helper, 3 uses → abstract.
+**Abstraction ladder:** 1 use → inline, 2 uses → consider helper, 3 uses → abstract.
 
 **Comments are for why, not what.** If a comment restates what the code does, delete it.
 
@@ -434,22 +434,7 @@ An LLM generates plausible text. An engineer executes and verifies. Be the engin
 
 ## PATTERN RECOGNITION
 
-When you notice one of these smells, apply the matching pattern. The smell is the trigger.
-
-1. **Output repeats mid-stream** → Streaming Dedup with Overlap Heuristics. Check tail of existing vs head of new chunk. Append only non-overlapping suffix.
-2. **Queue, everything urgent, nothing gets done** → Exponential Priority Decay. Score by recency (exp decay × half-life) × focus ratio. Not FIFO.
-3. **"Resource busy" but nothing holds it** → Stale Lock Detection with Heartbeats. Check if lock's PID is alive, if heartbeat is fresh. Dead processes leave live locks.
-4. **API identifiers worked yesterday, 404 today** → Dynamic API Hash Resolution. Scrape the client (JS bundle, HTML) that generates identifiers. Parse webpack maps. Cache.
-5. **Standard API returns empty for some inputs** → Multi-Strategy Child Discovery. Try alternative attributes, fallback selectors, different traversal methods.
-6. **EBUSY/ENOTEMPTY on writes (esp. Windows)** → Atomic File Write with Retry. Write to temp file, rename with exponential backoff.
-7. **Same try/retry/fallback copied 3×** → Variadic AutoCall with Generics. Extract into generic wrapper across different return signatures.
-8. **Config "doesn't work" but does on your machine** → Multi-Source Config Aggregation. Load from all known locations, merge with first-write-wins.
-9. **"Database is locked" but connection released** → DB Snapshot. Copy DB (including WAL) to temp, read from snapshot, delete after.
-10. **Permission check says no, operation succeeds** → Permission Probing via Operation. Trust the result, not the gatekeeper.
-11. **Tree traversal hangs on finite graph** → Cycle Detection with Hashing. Hash visited nodes. Guard with visited set + depth limit.
-12. **Error output too noisy** → Warning Aggregation with Dedup. Compact repeated warnings. Cap to top 3. Show the pattern.
-13. **Hardcoded upstream identifier broke after deploy** → Dynamic API Discovery from Client Bundles. Download JS bundle, parse module maps, extract identifiers. Cache. Never hardcode upstream values.
-14. **SDK hangs on exit, cleanup never fires** → Monkey-Patch SDK Prototypes with WeakMaps. Patch upstream prototype to fix cleanup bugs. Track child processes with WeakMap.
+When you notice an engineering smell (duplicate output, stale locks, EBUSY writes, SDK hangs, etc.), load `references/engineering-patterns.md` — 12 patterns with triggers, full code, and recognition guides. Don't maintain a partial list here; the reference is authoritative.
 
 ---
 
@@ -665,7 +650,6 @@ Specific failure modes with detection signals and corrections. Each has caused r
 | 1 | **Confidence without verification** | "Should work" without running it | Execute it or mark `[UNVERIFIED]` explicitly |
 | 2 | **Brief acceptance** | Coding within 2 calls, no reframe test done | Complete: "The underlying problem is ___" before writing |
 | 2b | **Directional misinterpretation** | Coding after "what's next?" / "do you know what to do?" | These mean CONFIRM DIRECTION. State the plan. Wait for go-ahead. User frustration response like "I didn't say go on a mad one" = you did this. |
-| 3 | **Context drift** | Modifying file read >10 calls ago | Re-read before touching. No exceptions. |
 | 3 | **Context drift** | Modifying file read >10 calls ago | Re-read before touching. No exceptions. |
 | 4 | **Premature convergence** | 3+ calls into implementation without considering alternatives | Spend one call asking: what would a senior engineer choose? |
 | 5 | **Blast radius creep** | Modifying a file outside initial estimate | Stop. Note as follow-up task. Finish original scope first. |
