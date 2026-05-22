@@ -10,21 +10,21 @@ Monorepo for Pi coding agent resources: extensions and skills.
 ## Structure
 
 ```
-repo/
-├── extensions/          # Pi extensions (.ts files)
+everpi/
+├── assets/                # Hero banner, images
+├── extensions/            # Pi extensions (.ts files)
 │   ├── bailian-coding-plan.ts
 │   └── README.md
-├── skills/              # Pi skills (SKILL.md + optional references/)
+├── skills/                # Pi skills (SKILL.md + optional references/)
 │   ├── engineering-principles/
 │   ├── github-hygiene/
 │   ├── google-workspace/
-│   ├── improve-codebase-architecture/
-│   └── ...
-├── AGENTS.md            # this file
-├── CHANGELOG.md
-├── README.md            # monorepo front page
-├── .gitignore
-└── package.json
+│   └── improve-codebase-architecture/
+├── AGENTS.md              # this file
+├── CHANGELOG.md           # release history
+├── CONTRIBUTING.md        # how to add skills and extensions
+├── package.json           # pi package metadata
+└── README.md              # monorepo front page
 ```
 
 ## Commands
@@ -32,7 +32,7 @@ repo/
 - **install dependencies**: `npm install` (only if editing TypeScript in extensions)
 - **check**: `git status --short` — verify what's changing before committing
 - **build**: n/a — no build step for skills (Markdown) or extensions (loaded by jiti)
-- **release**: edit CHANGELOG.md Unreleased section, then `git commit` + `git push`
+- **release**: bump version in package.json, edit CHANGELOG.md, then `git commit` + `git push`
 
 ## Style
 

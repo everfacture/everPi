@@ -1,11 +1,19 @@
 {
   "name": "everpi",
-  "version": "1.0.0",
-  "description": "Reusable Pi package for agent workflow skills and provider extensions",
+  "version": "1.1.0",
+  "description": "Engineering-grade skills and provider extensions for Pi coding agent",
   "keywords": [
-    "pi-package"
+    "pi-package",
+    "pi-skills",
+    "coding-agent",
+    "engineering-principles"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/everfacture/everPi.git"
+  },
+  "homepage": "https://github.com/everfacture/everPi",
   "pi": {
     "extensions": [
       "extensions"
