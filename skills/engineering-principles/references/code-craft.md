@@ -2,6 +2,8 @@
 
 _Guidebook for any agent coding in this environment. Read linearly on load. Apply immediately. Every word earns its place._
 
+> Code standards and SHIP/BUILD philosophy shaped by the shipping ethos of [Pieter Levels](https://levels.io/) and the systems discipline of [Peter Steinberger](https://steipete.com/) (@steipete).
+
 ---
 
 ## QUICK REFERENCE

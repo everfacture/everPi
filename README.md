@@ -28,10 +28,10 @@ A curated pack of **skills** and **extensions** for [Pi](https://github.com/eare
 
 | Skill | What It Does |
 |-------|-------------|
-| [engineering-principles](skills/engineering-principles/) | Operating protocol for all coding work. Start gate, blast radius, bug fix flow, code craft defaults, anti-pattern self-review. **Load this before any source-code task.** |
+| [engineering-principles](skills/engineering-principles/) | Operating protocol for all coding work. Karpathy behavioral guidelines merged in. Code standards shaped by Pieter Levels' shipping ethos and Peter Steinberger's systems discipline. Start gate, blast radius, bug fix flow, anti-pattern self-review. **Load before any source-code task.** |
 | [github-hygiene](skills/github-hygiene/) | GitHub workflow: commits, PRs, issues, releases, repo cleanliness. Conventional commits, changelog management, fork hygiene. |
-| [improve-codebase-architecture](skills/improve-codebase-architecture/) | Find architecture deepening opportunities. Turn shallow modules into deep ones. Split god files, consolidate duplication, make code testable. |
-| [google-workspace](skills/google-workspace/) | 49 Google Workspace tools via zero-dependency Python CLI. Calendar, Gmail, Drive, Docs, Sheets, Contacts, Tasks. Direct REST API, no SDK. |
+| [improve-codebase-architecture](skills/improve-codebase-architecture/) | Architecture review and deepening. Vocabulary adapted from [Matt Pocock](https://github.com/mattpocock/skills); extended with Start Gate, Explore, Candidate/Grilling workflow, and execution rules. |
+| [google-workspace](skills/google-workspace/) | 49 Google Workspace tools via zero-dependency Python CLI. Calendar, Gmail, Drive, Docs, Sheets, Contacts, Tasks. Direct REST API, no SDK. Original source unattributed — adapted from an internal Pi community CLI.
 
 ## Extensions
 
@@ -95,6 +95,15 @@ everpi/
 ├── package.json            # Pi package metadata
 └── README.md
 ```
+
+## Credits
+
+Skills and references build on work from the open-source community:
+
+- **improve-codebase-architecture** — vocabulary (module, interface, depth, seam, adapter, leverage, locality) adapted from [Matt Pocock's skill](https://github.com/mattpocock/skills/blob/main/skills/engineering/improve-codebase-architecture/SKILL.md), extended with workflow and execution rules.
+- **engineering-principles / code-craft** — code standards and SHIP/BUILD philosophy shaped by the shipping ethos of [Pieter Levels](https://levels.io/) and the systems discipline of [Peter Steinberger](https://steipete.com/) (@steipete).
+- **engineering-patterns** — 12 implementation patterns extracted from deep analysis of [Peter Steinberger's](https://github.com/steipete) production repos.
+- **Karpathy guidelines** — behavioral guidelines merged into engineering-principles from [Andrej Karpathy](https://x.com/karpathy/status/2015883857489522876)'s observations on LLM coding pitfalls.
 
 ## Contributing
 

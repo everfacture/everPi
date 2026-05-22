@@ -9,6 +9,8 @@ Architecture review mode. Find friction first. Do not edit during discovery. Kee
 
 Goal: turn shallow modules into deeper modules: more behavior behind smaller, clearer interfaces. Optimize for testability, locality, leverage, and AI-navigability.
 
+> **Origin:** Architecture vocabulary (module, interface, depth, seam, adapter, leverage, locality) adapted from [Matt Pocock's `improve-codebase-architecture` skill](https://github.com/mattpocock/skills/blob/main/skills/engineering/improve-codebase-architecture/SKILL.md). Extended with Start Gate, Explore, Domain Research Rule, Candidate/Grilling workflow, Execution Rules, and reference files.
+
 ## Start Gate
 
 Before proposing changes, establish:
