@@ -15,20 +15,19 @@
 
 ## What Is This
 
-A curated pack of **skills** for [Pi](https://github.com/earendil-works/pi-coding-agent) — the terminal-based AI coding agent. Install them, and Pi ships with real engineering discipline instead of "vibe coding."
+A curated pack of **skills** for [Pi](https://github.com/earendil-works/pi-coding-agent) — the terminal-based AI coding agent. Install them to help Pi ship with real engineering discipline distilled from builders instead of pure "vibe coding."
 
 **What makes these different:**
 
-- **Karpathy merge** — behavioral guidelines from [Andrej Karpathy](https://x.com/karpathy/status/2015883857489522876) baked into every skill: surface assumptions, don't pick silently, surgical changes only, per-step verification.
-- **Anti-pattern examples** — each skill includes concrete wrong-vs-right code examples showing what LLMs do wrong and how to fix it.
 - **Real-world patterns** — engineering patterns extracted from deep analysis of 10 production repos: streaming dedup, stale lock detection, atomic file writes, etc.
 - **SHIP vs BUILD gear** — adapts rigor to context. Prototypes move fast. Production code gets read-first, test-required, verified discipline.
+- **Real builders merged** — behavioral guidelines baked into Engineering principles skill.
 
 ## Skills
 
 | Skill | What It Does |
 |-------|-------------|
-| [engineering-principles](skills/engineering-principles/) | Operating protocol for all coding work. Karpathy behavioral guidelines merged in. Code standards shaped by Pieter Levels' shipping ethos and Peter Steinberger's systems discipline. Start gate, blast radius, bug fix flow, anti-pattern self-review. **Load before any source-code task.** |
+| [engineering-principles](skills/engineering-principles/) | Operating protocol for all coding work. Code standards shaped by Pieter Levels' shipping ethos and Peter Steinberger's systems discipline. I later took [Andrej Karpathy](https://x.com/karpathy/status/2015883857489522876) behavioral guidelines and merged them in. Start gate, blast radius, bug fix flow, anti-pattern self-review. **Load before any source-code task.** |
 | [github-hygiene](skills/github-hygiene/) | GitHub workflow: commits, PRs, issues, releases, repo cleanliness. Conventional commits, changelog management, fork hygiene. |
 | [improve-codebase-architecture](skills/improve-codebase-architecture/) | Architecture review and deepening. Vocabulary adapted from [Matt Pocock](https://github.com/mattpocock/skills); extended with Start Gate, Explore, Candidate/Grilling workflow, and execution rules. |
 | [google-workspace](skills/google-workspace/) | 49 Google Workspace tools via zero-dependency Python CLI. Calendar, Gmail, Drive, Docs, Sheets, Contacts, Tasks. Direct REST API, no SDK. Original source unattributed — adapted from an internal Pi community CLI.
