@@ -30,20 +30,6 @@ description: One-line summary of when to use this skill.
 - **Self-contained.** A skill should be loadable without reading other skills.
 - **Reference files are optional.** Only add them if code examples are needed.
 
-## Adding an Extension
-
-1. Create `extensions/<name>.ts`.
-2. Register with Pi APIs (`pi.registerProvider`, `pi.registerCommand`, etc.).
-3. The filename should match the primary registered command or provider name.
-4. Add the extension path to `package.json` under `pi.extensions`.
-5. Document in `extensions/README.md`.
-
-### Extension Guidelines
-
-- **Loaded by jiti.** No build step needed, but errors surface silently in Pi.
-- **Zero dependencies preferred.** If you need external packages, note them in the extension README.
-- **Graceful failure.** If an extension can't load (missing env var, etc.), fail with a clear message, not a crash.
-
 ## Commit Convention
 
 Use conventional commit prefixes:

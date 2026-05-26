@@ -56,6 +56,6 @@
 
   <!-- Bottom tagline -->
   <text x="640" y="370" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" text-anchor="middle" letter-spacing="0.5">
-    Engineering-grade skills and extensions for Pi coding agent
+    Engineering-grade skills for Pi coding agent
   </text>
 </svg>
