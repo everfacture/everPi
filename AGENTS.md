@@ -15,7 +15,8 @@ everpi/
 │   ├── engineering-principles/
 │   ├── github-hygiene/
 │   ├── google-workspace/
-│   └── improve-codebase-architecture/
+│   ├── improve-codebase-architecture/
+│   └── loop-engineering/
 ├── AGENTS.md              # this file
 ├── CHANGELOG.md           # release history
 ├── CONTRIBUTING.md        # how to add skills

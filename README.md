@@ -30,6 +30,7 @@ A curated pack of **skills** for [Pi](https://github.com/earendil-works/pi-codin
 | [engineering-principles](skills/engineering-principles/) | Operating protocol for all coding work. Code standards shaped by Pieter Levels' shipping ethos and Peter Steinberger's systems discipline. I later took [Andrej Karpathy](https://x.com/karpathy/status/2015883857489522876) behavioral guidelines and merged them in. Start gate, blast radius, bug fix flow, anti-pattern self-review. **Load before any source-code task.** |
 | [github-hygiene](skills/github-hygiene/) | GitHub workflow: commits, PRs, issues, releases, repo cleanliness. Conventional commits, changelog management, fork hygiene. |
 | [improve-codebase-architecture](skills/improve-codebase-architecture/) | Architecture review and deepening. Vocabulary adapted from [Matt Pocock](https://github.com/mattpocock/skills); extended with Start Gate, Explore, Candidate/Grilling workflow, and execution rules. |
+| [loop-engineering](skills/loop-engineering/) | Design safe recurring Pi agent loops: discovery, isolation, verification, persistent state, schedules, budgets, human gates, and extension/MCP upgrade triggers. |
 | [google-workspace](skills/google-workspace/) | 49 Google Workspace tools via zero-dependency Python CLI. Calendar, Gmail, Drive, Docs, Sheets, Contacts, Tasks. Direct REST API, no SDK. Original source unattributed — adapted from an internal Pi community CLI.
 
 ## Install
@@ -67,7 +68,8 @@ everpi/
 │   ├── engineering-principles/
 │   ├── github-hygiene/
 │   ├── google-workspace/
-│   └── improve-codebase-architecture/
+│   ├── improve-codebase-architecture/
+│   └── loop-engineering/
 ├── AGENTS.md               # Repo guidelines for agents
 ├── CHANGELOG.md            # Release history
 ├── CONTRIBUTING.md         # How to add skills

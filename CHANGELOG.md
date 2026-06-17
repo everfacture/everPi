@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+### Added
+- **skills/loop-engineering:** Added Pi-focused loop design protocol for recurring agent workflows, verifier gates, state, budgets, scheduling, and extension/MCP upgrade decisions.
+
 ### Removed
 - **extensions/bailian-coding-plan:** Removed DashScope provider extension. Alibaba models are configured through `models.json` now.
 
