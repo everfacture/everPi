@@ -1,6 +1,6 @@
 ---
 name: loop-engineering
-description: Design safe Pi agent loops: recurring runs, CI/issue triage, evaluators, MCP/extension workflows, schedules, persistence, budgets, and human gates.
+description: "Design safe Pi agent loops: recurring runs, CI/issue triage, evaluators, MCP/extension workflows, schedules, persistence, budgets, and human gates."
 ---
 
 # Loop Engineering
