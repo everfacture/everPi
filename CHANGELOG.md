@@ -2,8 +2,21 @@
 
 ## Unreleased
 
+_No unreleased changes._
+
+## 1.2.0
+
 ### Added
 - **skills/loop-engineering:** Added Pi-focused loop design protocol for recurring agent workflows, verifier gates, state, budgets, scheduling, and extension/MCP upgrade decisions.
+- **LICENSE:** Added MIT license file so GitHub detects the repository license.
+- **CI:** Added GitHub Actions check workflow and `scripts/check_repo.py` validation gate.
+- **GitHub templates:** Added bug report, skill proposal, and pull request templates.
+
+### Changed
+- **README.md:** Tightened public-facing copy, fixed Pi repository link, removed unnecessary install noise, documented versioning policy, and corrected Google Workspace attribution.
+- **assets/banner.svg:** Replaced risky banner wording with public-safe “ship small diffs.”
+- **package.json:** Bumped package version to `1.2.0`, added `npm run check`, and expanded package keywords.
+- **CONTRIBUTING.md / AGENTS.md:** Added repo check command, release rules, and public hygiene guidance.
 
 ### Removed
 - **extensions/bailian-coding-plan:** Removed DashScope provider extension. Alibaba models are configured through `models.json` now.
@@ -28,9 +41,9 @@
 ## 1.0.0
 
 ### Added
-- **skills/google-workspace**: Unified Google Workspace CLI — 49 tools across Calendar, Gmail, Drive, Docs, Sheets, Contacts, Tasks. Zero dependencies. See `skills/google-workspace/README.md` for setup.
-- **skills/engineering-principles**: Operating protocol for coding work.
-- **skills/github-hygiene**: GitHub workflow for commits, PRs, issues, releases.
-- **skills/improve-codebase-architecture**: Architecture deepening opportunities.
-- **extensions/bailian-coding-plan**: DashScope provider with 4 zero-cost models.
+- **skills/google-workspace:** Unified Google Workspace CLI — 49 tools across Calendar, Gmail, Drive, Docs, Sheets, Contacts, Tasks. Zero dependencies. See `skills/google-workspace/README.md` for setup.
+- **skills/engineering-principles:** Operating protocol for coding work.
+- **skills/github-hygiene:** GitHub workflow for commits, PRs, issues, releases.
+- **skills/improve-codebase-architecture:** Architecture deepening opportunities.
+- **extensions/bailian-coding-plan:** DashScope provider with 4 zero-cost models.
 - **AGENTS.md**, **CHANGELOG.md**, **.gitignore**, **package.json**.

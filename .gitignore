@@ -1,11 +1,27 @@
 # Credentials — never commit
+**/.env
+**/*.env
 **/client_secret.json
 **/token.json
-**/.env
+**/auth.json
+**/google_token.json
+**/google_client_secret.json
+**/*.pem
+**/*.key
 
 # macOS
 .DS_Store
 
 # Node
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 *.log
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/

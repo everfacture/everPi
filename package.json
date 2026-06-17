@@ -1,11 +1,13 @@
 {
   "name": "everpi",
-  "version": "1.1.0",
-  "description": "Engineering-grade skills for Pi coding agent",
+  "version": "1.2.0",
+  "description": "Engineering-grade skills for the Pi coding agent",
   "keywords": [
     "pi-package",
     "pi-skills",
+    "ai-agent",
     "coding-agent",
+    "developer-tools",
     "engineering-principles"
   ],
   "license": "MIT",
@@ -14,6 +16,9 @@
     "url": "https://github.com/everfacture/everPi.git"
   },
   "homepage": "https://github.com/everfacture/everPi",
+  "scripts": {
+    "check": "python3 scripts/check_repo.py"
+  },
   "pi": {
     "skills": [
       "skills"
